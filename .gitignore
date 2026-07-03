@@ -1,0 +1,29 @@
+# OS junk
+Thumbs.db
+desktop.ini
+$RECYCLE.BIN/
+.DS_Store
+
+# Editor/IDE configs
+.vscode/
+.vs/
+*.suo
+*.user
+
+# DrRacket / Racket artifacts
+compiled/
+*.zo
+*.dep
+*.dll
+info.rkt.bak
+*.rktd~
+
+# Backup / temp files
+*.bak
+*.tmp
+*~
+*.swp
+
+# Log files (from the sync script itself, once that's running)
+sync_log.txt
+.last_push_date.txt

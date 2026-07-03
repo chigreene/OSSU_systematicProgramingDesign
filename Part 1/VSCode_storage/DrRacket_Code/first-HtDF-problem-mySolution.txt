@@ -1,0 +1,14 @@
+;; Problem: design a fucntino that pluralizes a given word.
+;;          (Pluralize means to convert the word to its plural form.)
+;;          For simplicity you may assume that just adding s is enough to
+;;          pluralize a word.
+
+;String -> String     signature
+;take a string input and  add an 's' to the end
+;;(define (pluralize n) "s")    ;Stub poor example
+(define (pluralize str) str) ;stub better solution. 
+
+;;(pluralize "car") should produce "cars"
+
+(check-expect (pluralize "car") "")
+

@@ -1,0 +1,15 @@
+(require lang/htdp-beginner)
+
+
+;Question 1
+(define FOO (* 2 3))
+(define BAR (* FOO 2 ))
+;Solve
+(* FOO BAR)
+(* (* 2 3) (* FOO 2))
+(* (* 2 3) (* (* 2 3) 2))
+(* 6 (* 6 2))
+(* 6 12)
+72
+
+;Question 2

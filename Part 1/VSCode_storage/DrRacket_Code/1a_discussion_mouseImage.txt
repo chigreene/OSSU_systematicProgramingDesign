@@ -1,0 +1,14 @@
+(require 2htdp/image)
+
+
+(overlay/offset 
+
+(overlay/offset (circle 65 "solid" "red") 100 100 
+
+(overlay/offset (circle 20 "solid" "white") -30 40
+
+(overlay/offset (circle 20 "solid" "white") 30 40
+                (add-solid-curve (circle 100 "solid" "red")
+                20 100 -80 2/3 180 100 80 2/3 "white"))
+                ))
+                120 -73 (circle 65 "solid" "red"))
