@@ -36,7 +36,7 @@ if ($LASTEXITCODE -ne 0) {
 }
 
 # --- Step 3: Rebase local commits on top of remote (safe merge) ---
-git pull --rebase origin main 2>&1 | Out-Null
+git pull --rebase --autostash origin main 2>&1 | Out-Null
 if ($LASTEXITCODE -ne 0) {
     git rebase --abort 2>&1 | Out-Null
     Write-Log "CONFLICT - rebase failed and was aborted. Manual attention needed."
