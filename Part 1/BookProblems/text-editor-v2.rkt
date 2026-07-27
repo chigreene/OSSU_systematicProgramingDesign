@@ -148,7 +148,7 @@
                                                  (string-length (editor-post ed))))])]
         [else ed]))  
 
-
+ 
 ;; Editor -> Image
 ;; consumes editor and renders data as information on the screen
 (define (render d) (place-image (beside (text (editor-pre d) 16 "black")
