@@ -18,7 +18,7 @@
 ;; DATA DEFINITION
 ;; ==========================
 
-(define-struct editor [pre post])
+(define-struct editor [pre post])     
 ; An Editor is a structure:
 ;   (make-editor String String)
 ; interpretation (make-editor s t) describes an editor

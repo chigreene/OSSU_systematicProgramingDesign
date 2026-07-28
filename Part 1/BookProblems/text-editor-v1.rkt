@@ -34,7 +34,7 @@
 ;; ================================
 
 ;; WS -> WS
-;; start world with (main (make-editor "" ""))
+;; start world with (main (make-editor "" "")) 
 (define (main ws)
   (big-bang ws            ; WS
     (on-key edit)         ; WS
@@ -43,36 +43,36 @@
 ;; Editor KeyEvent -> Editor
 ;; adjusts value of pre and post data fields to simulate a cursor moving along the string of text resulting from
 ;; appending pre and post
-(check-expect (edit EX1 "a") (make-editor "abcadef" 3))
-(check-expect (edit EX1 "b") (make-editor "abcbdef" 3))
-(check-expect (edit EX1 "c") (make-editor "abccdef" 3))
-(check-expect (edit EX1 "d") (make-editor "abcddef" 3))
-(check-expect (edit EX1 "e") (make-editor "abcedef" 3))
-(check-expect (edit EX1 "f") (make-editor "abcfdef" 3))
-(check-expect (edit EX1 "g") (make-editor "abcgdef" 3))
-(check-expect (edit EX1 "h") (make-editor "abchdef" 3))
-(check-expect (edit EX1 "i") (make-editor "abcidef" 3))
-(check-expect (edit EX1 "j") (make-editor "abcjdef" 3))
-(check-expect (edit EX1 "k") (make-editor "abckdef" 3))
-(check-expect (edit EX1 "l") (make-editor "abcldef" 3))
-(check-expect (edit EX1 "m") (make-editor "abcmdef" 3))
-(check-expect (edit EX1 "n") (make-editor "abcndef" 3))
-(check-expect (edit EX1 "o") (make-editor "abcodef" 3))
-(check-expect (edit EX1 "p") (make-editor "abcpdef" 3))
-(check-expect (edit EX1 "q") (make-editor "abcqdef" 3))
-(check-expect (edit EX1 "r") (make-editor "abcrdef" 3))
-(check-expect (edit EX1 "s") (make-editor "abcsdef" 3))
-(check-expect (edit EX1 "t") (make-editor "abctdef" 3))
-(check-expect (edit EX1 "u") (make-editor "abcudef" 3))
-(check-expect (edit EX1 "v") (make-editor "abcvdef" 3))
-(check-expect (edit EX1 "w") (make-editor "abcwdef" 3))
-(check-expect (edit EX1 "x") (make-editor "abcxdef" 3))
-(check-expect (edit EX1 "y") (make-editor "abcydef" 3))
-(check-expect (edit EX1 "z") (make-editor "abczdef" 3))
-(check-expect (edit EX1 " ") (make-editor "abc def" 3))
+(check-expect (edit EX1 "a") (make-editor "abcadef" 4))
+(check-expect (edit EX1 "b") (make-editor "abcbdef" 4))
+(check-expect (edit EX1 "c") (make-editor "abccdef" 4))
+(check-expect (edit EX1 "d") (make-editor "abcddef" 4))
+(check-expect (edit EX1 "e") (make-editor "abcedef" 4))
+(check-expect (edit EX1 "f") (make-editor "abcfdef" 4))
+(check-expect (edit EX1 "g") (make-editor "abcgdef" 4))
+(check-expect (edit EX1 "h") (make-editor "abchdef" 4))
+(check-expect (edit EX1 "i") (make-editor "abcidef" 4))
+(check-expect (edit EX1 "j") (make-editor "abcjdef" 4))
+(check-expect (edit EX1 "k") (make-editor "abckdef" 4))
+(check-expect (edit EX1 "l") (make-editor "abcldef" 4))
+(check-expect (edit EX1 "m") (make-editor "abcmdef" 4))
+(check-expect (edit EX1 "n") (make-editor "abcndef" 4))
+(check-expect (edit EX1 "o") (make-editor "abcodef" 4))
+(check-expect (edit EX1 "p") (make-editor "abcpdef" 4))
+(check-expect (edit EX1 "q") (make-editor "abcqdef" 4))
+(check-expect (edit EX1 "r") (make-editor "abcrdef" 4))
+(check-expect (edit EX1 "s") (make-editor "abcsdef" 4))
+(check-expect (edit EX1 "t") (make-editor "abctdef" 4))
+(check-expect (edit EX1 "u") (make-editor "abcudef" 4))
+(check-expect (edit EX1 "v") (make-editor "abcvdef" 4))
+(check-expect (edit EX1 "w") (make-editor "abcwdef" 4))
+(check-expect (edit EX1 "x") (make-editor "abcxdef" 4))
+(check-expect (edit EX1 "y") (make-editor "abcydef" 4))
+(check-expect (edit EX1 "z") (make-editor "abczdef" 4))
+(check-expect (edit EX1 " ") (make-editor "abc def" 4))
  
 ;; Backspace tests
-(check-expect (edit EX1 "\b") (make-editor "abcdef" 3))
+(check-expect (edit EX1 "\b") (make-editor "abdef" 2))
 (check-expect (edit EX3 "\b") (make-editor "abcdef" 0))
  
 ;; Left arrow tests
@@ -83,7 +83,7 @@
 ;; Right arrow tests
 (check-expect (edit EX1 "right") (make-editor "abcdef" 4))
 (check-expect (edit EX3 "right") (make-editor "abcdef" 1))
-(check-expect (edit EX4 "right") (make-editor "abcdef" 6))
+(check-expect (edit EX4 "right") (make-editor "abcdef" 6)) 
  
 ;; Edge case: unrecognized key
 (check-expect (edit EX1 "\t") EX1)
@@ -92,36 +92,71 @@
 (check-expect (edit EX5 "a") EX5)
 
 (define (edit ed ke)
-  (cond [(string=? ke "a") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "b") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "c") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "d") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "e") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "f") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "g") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "h") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "i") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "j") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "k") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "l") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "m") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "n") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "o") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "p") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "q") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "r") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "s") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "t") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "u") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "v") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "w") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "x") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "y") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "z") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke " ") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "left") (... (editor-text ed) (editor-index ed))]
-        [(string=? ke "right") (... (editor-text ed) (editor-index ed))]))
-
+  (cond [(key=? ke "\b")(cond [(= (editor-index ed) 0)  ed]
+                              [else (make-editor (string-append (string-remove-last ed) (string-last ed))
+                                        (- (editor-index ed) 1))])]
+        [(>= (image-width (text (editor-text ed) 16 "black")) WIDTH) ed]
+        [(string=? ke "a") (make-editor (string-append (string-first ed) "a" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "b") (make-editor (string-append (string-first ed) "b" (string-last ed))
+                                        (+ 1 (editor-index ed)))] 
+        [(string=? ke "c") (make-editor (string-append (string-first ed) "c" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "d") (make-editor (string-append (string-first ed) "d" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "e") (make-editor (string-append (string-first ed) "e" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "f") (make-editor (string-append (string-first ed) "f" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "g") (make-editor (string-append (string-first ed) "g" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "h") (make-editor (string-append (string-first ed) "h" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "i") (make-editor (string-append (string-first ed) "i" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "j") (make-editor (string-append (string-first ed) "j" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "k") (make-editor (string-append (string-first ed) "k" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "l") (make-editor (string-append (string-first ed) "l" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "m") (make-editor (string-append (string-first ed) "m" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "n") (make-editor (string-append (string-first ed) "n" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "o") (make-editor (string-append (string-first ed) "o" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "p") (make-editor (string-append (string-first ed) "p" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "q") (make-editor (string-append (string-first ed) "q" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "r") (make-editor (string-append (string-first ed) "r" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "s") (make-editor (string-append (string-first ed) "s" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "t") (make-editor (string-append (string-first ed) "t" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "u") (make-editor (string-append (string-first ed) "u" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "v") (make-editor (string-append (string-first ed) "v" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "w") (make-editor (string-append (string-first ed) "w" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "x") (make-editor (string-append (string-first ed) "x" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "y") (make-editor (string-append (string-first ed) "y" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "z") (make-editor (string-append (string-first ed) "z" (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke " ") (make-editor (string-append (string-first ed) " " (string-last ed))
+                                        (+ 1 (editor-index ed)))]
+        [(string=? ke "left") (cond [(= (editor-index ed) 0) ed]
+                                    [else (make-editor (editor-text ed) (- (editor-index ed) 1))])]
+        [(string=? ke "right") (cond [(= (editor-index ed) (string-length (editor-text ed))) ed]
+                                     [else (make-editor (editor-text ed) (+ (editor-index ed) 1))])]
+       
+        [else ed])) 
+  
 ;; Editor -> String
 ;; Creates string-first
 ;; interp. the string ahead of cursor location
@@ -139,13 +174,29 @@
 ;; String -> String
 ;; create string-remove-last
 ;; interp. removes the last letter from a string
-;; !!!
-(define (string-remove-last ed) "") 
+(check-expect (string-remove-last EX1) "ab")
+(define (string-remove-last ed) (substring (string-first ed) 0 (- (editor-index ed) 1)))
 
 ;; Editor -> Image
 ;; Consumes editor and renders the data as information on the screen
 ;; as a basic string of text with a cursor at locaiton index
-(check-expect (render (make-editor "Hello World" 11)) (place-image (beside (text "Hello World" 16 "black") CURSOR) CTR-X CTR-Y MTS))
+(check-expect (render (make-editor "Hello World" 11))
+              (place-image (beside (text "Hello World" 16 "black") CURSOR)
+                           CTR-X
+                           CTR-Y
+                           MTS))
+(check-expect (render (make-editor "Hello World" 5))
+              (place-image (beside (text "Hello" 16 "black")
+                                   CURSOR
+                                   (text " World" 16 "black"))
+                           CTR-X
+                           CTR-Y
+                           MTS))
 
 (define (render ed)
-  (place-image (beside (text (editor-text ed) 16 "black") CURSOR CTR-X CTR-Y MTS)))
+  (place-image (beside (text (string-first ed) 16 "black")
+                                   CURSOR
+                                   (text (string-last ed) 16 "black"))
+                           CTR-X
+                           CTR-Y
+                           MTS))  
