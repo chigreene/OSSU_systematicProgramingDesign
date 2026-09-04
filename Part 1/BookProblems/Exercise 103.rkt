@@ -61,12 +61,37 @@
 
 #;
 (define (fn-for-animal as)
-  (cond [(string=? "spider" as) (...)]
-        [(string=? "elephant" as) (...)]
-        [(string=? "boa" as) (...)]))
+  (cond [(elephant? as) (...)]
+        [(spider? as) (...)]
+        [(armadillo? as) (...)]))
 
 ;; template rules used:
 ;;  - one of: 3 cases
 ;;  - atomic distinct: "spider"
 ;;  - atomic distinct: "elephant"
 ;;  - atomic distinct: "boa"
+
+;; Cage is a Number
+;; intrep. the space in a cage
+
+(define CAGE-1 100)
+
+#;
+(define (fn-for-cage c)
+  (... c))
+
+;; template rules used:
+;;  - atomic non-disticnt: Natural
+
+;; ================================================
+
+;; Number -> Boolean
+;; determins if a zoo animal fits in the containter
+(check-expect (fits? ELEPHANT-1 CAGE-1)  #false)
+(check-expect (fits? SPIDER-1 CAGE-1)    #true)
+(check-expect (fits? ARMADILLO-1 CAGE-1) #true)
+
+(define (fits? a c) (cond [(and (elephant? a) (< (elephant-space a) c)) #true]
+                          [(and (spider? a) (< (spider-space a) c)) #true]
+                          [(and (armadillo? a) (< (armadillo-space a) c)) #true]
+                          [else #false]))
