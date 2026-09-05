@@ -45,7 +45,7 @@
 
 ;; WS -> WS
 ;; decreases the bar 0.1 per tick and stops at zero
-;;!!!!
+;; !!!!
 (check-expect (update-bar 100) 99.9)
 (check-expect (update-bar 0) 0)
 (define (update-bar h)
